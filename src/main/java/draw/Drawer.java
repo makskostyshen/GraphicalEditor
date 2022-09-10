@@ -14,7 +14,18 @@ public class Drawer implements Tool {
         }
 
         Shape shape = (Shape) toolArgument;
-        shape.draw();
+        DrawnShape drawnShape = getDrawnShape(shape);
+        System.out.println(drawnShape);
+    }
+
+
+    public DrawnShape getDrawnShape(Shape shape){
+        String classFullName = shape.getClass().getName();
+
+        String[] packageNames = classFullName.split("\\.");
+        String classShortName = packageNames[packageNames.length -1];
+
+        return new DrawnShape(classShortName);
     }
 
 }
