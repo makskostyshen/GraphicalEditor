@@ -1,5 +1,5 @@
 package tools;
 
-public interface Tool {
-    void accomplish(ToolArgument toolArgument);
+public interface Tool <T extends ToolArgument>{
+    void accomplish(T toolArgument);
 }

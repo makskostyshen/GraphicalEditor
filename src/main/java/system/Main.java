@@ -40,7 +40,6 @@ public class Main {
         try{
             System system = new System();
 
-
             List<Shape> shapes = getTestingShapes();
 
             for(Shape shape: shapes){

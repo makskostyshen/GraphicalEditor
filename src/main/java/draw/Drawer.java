@@ -2,24 +2,17 @@ package draw;
 
 import draw.shape.Shape;
 import tools.Tool;
-import tools.ToolArgument;
 
-public class Drawer implements Tool {
+public class Drawer implements Tool<Shape> {
 
     @Override
-    public void accomplish(ToolArgument toolArgument) {
-
-        if(! (toolArgument instanceof Shape)){
-            throw new IllegalArgumentException();
-        }
-
-        Shape shape = (Shape) toolArgument;
+    public void accomplish(Shape shape) {
         DrawnShape drawnShape = getDrawnShape(shape);
         System.out.println(drawnShape);
     }
 
 
-    public DrawnShape getDrawnShape(Shape shape){
+    private DrawnShape getDrawnShape(Shape shape){
         String classFullName = shape.getClass().getName();
 
         String[] packageNames = classFullName.split("\\.");
